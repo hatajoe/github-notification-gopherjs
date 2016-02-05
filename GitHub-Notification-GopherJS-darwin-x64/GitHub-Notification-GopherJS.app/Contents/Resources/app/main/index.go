@@ -3,10 +3,11 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/gopherjs/gopherjs/js"
 	"log"
 	"path"
 	"runtime"
+
+	"github.com/gopherjs/gopherjs/js"
 )
 
 func readConfig(filePath string) error {
@@ -49,7 +50,7 @@ func main() {
 		mainWindow := browserWindow.New(map[string]interface{}{
 			"show": false,
 		})
-		mainWindow.Call("loadURL", fmt.Sprintf("file://%s/%s", dirName, "index.html"))
+		mainWindow.Call("loadUrl", fmt.Sprintf("file://%s/%s", dirName, "index.html"))
 		appIcon := tray.New(path.Join(dirName, "icon.png"))
 		appIcon.Call("setToolTip", "GitHub Notification GopherJS")
 		appIcon.Call("setContextMenu", menu.Call("buildFromTemplate", []map[string]interface{}{

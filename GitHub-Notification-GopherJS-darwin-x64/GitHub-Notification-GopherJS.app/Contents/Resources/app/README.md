@@ -18,9 +18,15 @@ And create specified file to your `$HOME/.github-notification-gopherjs`
 - interval: GitHub API execution interval seconds
 - token: Personal access token
 
-Run `GitHub-Notification-GopherJS-darwin-x64/GitHub-Notification-GopherJS.app`
+Execute `GitHub-Notification-GopherJS-darwin-x64/GitHub-Notification-GopherJS.app`
 
 ## Run as debug
+
+Install gopherjs
+
+```
+go get -u github.com/gopherjs/gopherjs
+```
 
 Install npm and electron
 
