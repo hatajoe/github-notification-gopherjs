@@ -9,9 +9,20 @@ Create GitHub Personal access token. (don't forget to enable `notifications` che
 And create specified file to your `$HOME/.github-notification-gopherjs`
 
 ```
+// For github.com
 {
     "interval": 3,
-    "token": "Personal access token"
+    "token": "Personal access token",
+    "githostname": "github.com",
+    "apihostname": "api.github.com"
+}
+
+For GithubEnterprise Example
+{
+    "interval": 3,
+    "token": "Personal access token",
+    "githostname": "ghehost.example.com",
+    "apihostname": "ghehost.example.com/api/v3"
 }
 ```
 
