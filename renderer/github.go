@@ -36,7 +36,7 @@ func main() {
 						subject := v["subject"].(map[string]interface{})
 						n := desktopNotification.New(v["repository"].(map[string]interface{})["name"].(string), map[string]interface{}{
 							"tag":  id,
-							"body": fmt.Sprintf("%s\n%s", subject["type"].(string),subject["title"].(string)),
+							"body": fmt.Sprintf("%s\n%s", subject["type"].(string), subject["title"].(string)),
 						})
 						n.Set("onclick", func() {
 							shell.Call("openExternal", "https://github.com/notifications")
