@@ -22,6 +22,7 @@ func main() {
 	ghme := client.Call("me")
 	noticed := map[string]bool{}
 	for {
+		// https://developer.github.com/v3/activity/notifications/#list-your-notifications
 		ghme.Call("notifications", map[string]interface{}{}, func(e *js.Object, d []map[string]interface{}, h *js.Object) {
 			if e != nil {
 				log.Println("error: ", e)
