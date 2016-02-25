@@ -19,6 +19,12 @@ func readConfig(filePath string) error {
 	}
 	js.Global.Set("interval", m["interval"].(float64))
 	js.Global.Set("token", m["token"].(string))
+	var k bool
+	if m["karaage"] != nil {
+		k = m["karaage"].(bool)
+	}
+	js.Global.Set("karaage", k)
+
 	return nil
 }
 
@@ -51,7 +57,11 @@ func main() {
 			"show": false,
 		})
 		mainWindow.Call("loadUrl", fmt.Sprintf("file://%s/%s", dirName, "index.html"))
-		appIcon := tray.New(path.Join(dirName, "icon.png"))
+		iconName := "icon.png"
+		if js.Global.Get("karaage").Bool() == true {
+			iconName = "karaage.png"
+		}
+		appIcon := tray.New(path.Join(dirName, iconName))
 		appIcon.Call("setToolTip", "GitHub Notification GopherJS")
 		appIcon.Call("setContextMenu", menu.Call("buildFromTemplate", []map[string]interface{}{
 			map[string]interface{}{
