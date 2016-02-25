@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"time"
 
@@ -15,9 +16,13 @@ func main() {
 
 	interval := time.Duration(remote.Call("getGlobal", "interval").Float())
 	token := remote.Call("getGlobal", "token").String()
+	apiHostName := remote.Call("getGlobal", "apihostname").String()
+	gitHostName := remote.Call("getGlobal", "githostname").String()
 
 	desktopNotification := js.Global.Get("Notification")
-	client := github.Call("client", token)
+	options := make(map[string]string)
+	options["hostname"] = apiHostName
+	client := github.Call("client", token, options)
 	ghme := client.Call("me")
 	noticed := map[string]bool{}
 	for {
@@ -36,7 +41,7 @@ func main() {
 							"body": v["subject"].(map[string]interface{})["title"].(string),
 						})
 						n.Set("onclick", func() {
-							shell.Call("openExternal", "https://github.com/notifications")
+							shell.Call("openExternal", fmt.Sprintf("https://%s/%s", gitHostName, "notifications"))
 						})
 					}
 				}

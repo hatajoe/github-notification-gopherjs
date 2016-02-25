@@ -19,6 +19,8 @@ func readConfig(filePath string) error {
 	}
 	js.Global.Set("interval", m["interval"].(float64))
 	js.Global.Set("token", m["token"].(string))
+	js.Global.Set("apihostname", m["apihostname"].(string))
+	js.Global.Set("githostname", m["githostname"].(string))
 	return nil
 }
 
