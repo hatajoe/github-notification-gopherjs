@@ -29,7 +29,11 @@ For GithubEnterprise Example
 - interval: GitHub API execution interval seconds
 - token: Personal access token
 
-Execute `GitHub-Notification-GopherJS-darwin-x64/GitHub-Notification-GopherJS.app`
+Copy app to `~/Applications` directory.
+
+```
+% make install
+```
 
 ## Run as debug
 
@@ -44,6 +48,7 @@ Install npm and electron
 ```
 % brew install npm 
 % npm -g install electron-prebuilt
+% npm -g install electron-packager
 ```
 
 Clone repository and run
@@ -54,16 +59,6 @@ Clone repository and run
 % npm install
 % make clean && make all
 % electron .
-```
-
-## Package Build
-
-Install electron-packager
-
-```
-% npm -g install electron-packager
-% electron-packager . GitHub-Notification-GopherJS --platform=darwin --arch=x64 --version=0.35.4
-% open GitHub-Notification-GopherJS
 ```
 
 ## License
