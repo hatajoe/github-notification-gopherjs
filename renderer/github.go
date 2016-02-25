@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"time"
 
@@ -21,6 +22,7 @@ func main() {
 	ghme := client.Call("me")
 	noticed := map[string]bool{}
 	for {
+		// https://developer.github.com/v3/activity/notifications/#list-your-notifications
 		ghme.Call("notifications", map[string]interface{}{}, func(e *js.Object, d []map[string]interface{}, h *js.Object) {
 			if e != nil {
 				log.Println("error: ", e)
@@ -31,9 +33,10 @@ func main() {
 					id := v["id"].(string)
 					if _, ok := noticed[id]; !ok {
 						noticed[id] = true
-						n := desktopNotification.New(v["subject"].(map[string]interface{})["type"].(string), map[string]interface{}{
+						subject := v["subject"].(map[string]interface{})
+						n := desktopNotification.New(v["repository"].(map[string]interface{})["name"].(string), map[string]interface{}{
 							"tag":  id,
-							"body": v["subject"].(map[string]interface{})["title"].(string),
+							"body": fmt.Sprintf("%s\n%s", subject["type"].(string), subject["title"].(string)),
 						})
 						n.Set("onclick", func() {
 							shell.Call("openExternal", "https://github.com/notifications")
