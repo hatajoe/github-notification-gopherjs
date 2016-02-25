@@ -9,9 +9,20 @@ Create GitHub Personal access token. (don't forget to enable `notifications` che
 And create specified file to your `$HOME/.github-notification-gopherjs`
 
 ```
+// For github.com
 {
     "interval": 3,
-    "token": "Personal access token"
+    "token": "Personal access token",
+    "githostname": "github.com",
+    "apihostname": "api.github.com"
+}
+
+For GithubEnterprise Example
+{
+    "interval": 3,
+    "token": "Personal access token",
+    "githostname": "ghehost.example.com",
+    "apihostname": "ghehost.example.com/api/v3"
 }
 ```
 
@@ -33,6 +44,7 @@ Install npm and electron
 ```
 % brew install npm 
 % npm -g install electron-prebuilt
+% npm -g install electron-packager
 ```
 
 Clone repository and run
@@ -43,16 +55,6 @@ Clone repository and run
 % npm install
 % make clean && make all
 % electron .
-```
-
-## Package Build
-
-Install electron-packager
-
-```
-% npm -g install electron-packager
-% electron-packager . GitHub-Notification-GopherJS --platform=darwin --arch=x64 --version=0.35.4
-% open GitHub-Notification-GopherJS
 ```
 
 ## License
