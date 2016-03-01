@@ -50,7 +50,7 @@ func main() {
 	app.Call("on", "ready", func() {
 		browserWindow := js.Global.Call("require", "browser-window")
 		mainWindow := browserWindow.New(map[string]interface{}{
-			"show": false,
+			"show": true,
 		})
 		mainWindow.Call("loadUrl", fmt.Sprintf("file://%s/%s", dirName, "index.html"))
 		appIcon := tray.New(path.Join(dirName, "icon.png"))

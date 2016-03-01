@@ -29,7 +29,11 @@ For GithubEnterprise Example
 - interval: GitHub API execution interval seconds
 - token: Personal access token
 
-Execute `GitHub-Notification-GopherJS-darwin-x64/GitHub-Notification-GopherJS.app`
+Copy app to `~/Applications` directory.
+
+```
+% make install
+```
 
 ## Run as debug
 

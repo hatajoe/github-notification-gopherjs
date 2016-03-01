@@ -7,4 +7,4 @@ clean:
 	rm -f *.js && rm -f *.map && rm -rf GitHub-Notification-Gopherjs-darwin-x64/
 
 install:
-	cp GitHub-Notification-Gopherjs-darwin-x64/GitHub-Notification-Gopherjs.app ~/Applications/
+	cp -r GitHub-Notification-Gopherjs-darwin-x64/GitHub-Notification-Gopherjs.app ~/Applications/
