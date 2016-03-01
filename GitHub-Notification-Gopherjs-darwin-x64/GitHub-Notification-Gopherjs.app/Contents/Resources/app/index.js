@@ -22811,7 +22811,7 @@ $packages["main"] = (function() {
 			/* */ $s = 0; var $f, $c = false; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; $ptr = $f.$ptr; _r$1 = $f._r$1; appIcon = $f.appIcon; browserWindow = $f.browserWindow; mainWindow = $f.mainWindow; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
 			mainWindow = [mainWindow];
 			browserWindow = $global.require($externalize("browser-window", $String));
-			mainWindow[0] = new (browserWindow)($externalize($makeMap($String.keyFor, [{ k: "show", v: new $Bool(true) }]), mapType));
+			mainWindow[0] = new (browserWindow)($externalize($makeMap($String.keyFor, [{ k: "show", v: new $Bool(false) }]), mapType));
 			_r$1 = fmt.Sprintf("file://%s/%s", new sliceType$2([new $String(dirName[0]), new $String("index.html")])); /* */ $s = 1; case 1: if($c) { $c = false; _r$1 = _r$1.$blk(); } if (_r$1 && _r$1.$blk !== undefined) { break s; }
 			mainWindow[0].loadUrl($externalize(_r$1, $String));
 			appIcon = new (tray[0])($externalize(path.Join(new sliceType$1([dirName[0], "icon.png"])), $String));
